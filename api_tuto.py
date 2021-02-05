@@ -65,3 +65,23 @@ json_print(response.json())
 
 pass_time = response.json()['response']
 json_print(pass_time)
+
+'''extract just the five resetime values'''
+risetimes = []
+
+for dict in pass_time:
+    time = dict['risetime']
+    risetimes.append(time)
+
+print(risetimes)
+
+'''To convert time format easier to understand'''
+from datetime import datetime
+
+times = []
+
+for rt in risetimes:
+
+    time = datetime.fromtimestamp(rt)
+    times.append(time)
+    print(time)
